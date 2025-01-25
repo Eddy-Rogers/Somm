@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://i865t31whe0b"]
+[gd_scene load_steps=4 format=3 uid="uid://i865t31whe0b"]
 
 [ext_resource type="Script" path="res://Scripts/wine_shelf_manager.cs" id="1_6td0p"]
-[ext_resource type="Texture2D" uid="uid://cy0rrchxu4hhi" path="res://Assets/Sprites/Mahogany1.0.png" id="1_q328j"]
 [ext_resource type="Texture2D" uid="uid://q23l33fv6ihu" path="res://Assets/Sprites/PNGs/Shelf1.0.png" id="2_wfpvu"]
 [ext_resource type="Texture2D" uid="uid://cdf8yx16lhaw2" path="res://Assets/Sprites/PNGs/Mahogany1.0.png" id="3_f0pbl"]
 
@@ -10,50 +9,50 @@ script = ExtResource("1_6td0p")
 
 [node name="Slot12" type="Sprite2D" parent="."]
 position = Vector2(512, 512)
-texture = ExtResource("1_q328j")
+texture = ExtResource("3_f0pbl")
 
 [node name="Slot13" type="Sprite2D" parent="."]
 position = Vector2(768, 512)
-texture = ExtResource("1_q328j")
+texture = ExtResource("3_f0pbl")
 
 [node name="Slot5" type="Sprite2D" parent="."]
 position = Vector2(0, 256)
-texture = ExtResource("1_q328j")
+texture = ExtResource("3_f0pbl")
 
 [node name="Slot14" type="Sprite2D" parent="."]
 position = Vector2(1024, 512)
-texture = ExtResource("1_q328j")
+texture = ExtResource("3_f0pbl")
 
 [node name="Slot0" type="Sprite2D" parent="."]
-texture = ExtResource("1_q328j")
+texture = ExtResource("3_f0pbl")
 
 [node name="Slot1" type="Sprite2D" parent="."]
 position = Vector2(256, 0)
-texture = ExtResource("1_q328j")
+texture = ExtResource("3_f0pbl")
 
 [node name="Slot2" type="Sprite2D" parent="."]
 position = Vector2(512, 0)
-texture = ExtResource("1_q328j")
+texture = ExtResource("3_f0pbl")
 
 [node name="Slot3" type="Sprite2D" parent="."]
 position = Vector2(768, 0)
-texture = ExtResource("1_q328j")
+texture = ExtResource("3_f0pbl")
 
 [node name="Slot6" type="Sprite2D" parent="."]
 position = Vector2(256, 256)
-texture = ExtResource("1_q328j")
+texture = ExtResource("3_f0pbl")
 
 [node name="Slot7" type="Sprite2D" parent="."]
 position = Vector2(512, 256)
-texture = ExtResource("1_q328j")
+texture = ExtResource("3_f0pbl")
 
 [node name="Slot8" type="Sprite2D" parent="."]
 position = Vector2(768, 256)
-texture = ExtResource("1_q328j")
+texture = ExtResource("3_f0pbl")
 
 [node name="Slot9" type="Sprite2D" parent="."]
 position = Vector2(1024, 256)
-texture = ExtResource("1_q328j")
+texture = ExtResource("3_f0pbl")
 
 [node name="Shelf1_0" type="Sprite2D" parent="."]
 z_index = 10
