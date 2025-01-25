@@ -1,9 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://8is3wrnnh02v"]
+[gd_scene load_steps=4 format=3 uid="uid://8is3wrnnh02v"]
 
 [ext_resource type="Texture2D" uid="uid://b2mlge6i6f80v" path="res://Assets/Sprites/PNGs/WineBrowser1.0.png" id="1_5wqg4"]
+[ext_resource type="Texture2D" uid="uid://ccr2xg51nl53a" path="res://Assets/Sprites/PNGs/Button1.0.png" id="2_1edps"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ug7y"]
+font_size = 38
 
 [node name="Node2D" type="Node2D"]
 
 [node name="WineBrowser1_0" type="Sprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_5wqg4")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_top = 7.0
+offset_right = 39.0
+offset_bottom = 47.0
+
+[node name="Button1_0" type="Sprite2D" parent="Control"]
+texture = ExtResource("2_1edps")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -139.0
+offset_top = -29.0
+offset_right = 127.0
+offset_bottom = 24.0
+text = "Buy Pinot Noir"
+label_settings = SubResource("LabelSettings_1ug7y")
+horizontal_alignment = 1
+vertical_alignment = 1

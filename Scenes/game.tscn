@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://cy68xb6yuemc"]
+[gd_scene load_steps=3 format=3 uid="uid://cy68xb6yuemc"]
+
+[ext_resource type="PackedScene" uid="uid://i865t31whe0b" path="res://Scenes/wine_shelf.tscn" id="1_oa23w"]
+[ext_resource type="PackedScene" uid="uid://8is3wrnnh02v" path="res://Scenes/wine_browser.tscn" id="2_od4ce"]
 
 [node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.4, 0.4)
+
+[node name="WineShelf" parent="." instance=ExtResource("1_oa23w")]
+position = Vector2(276, -663)
+
+[node name="Node2D" parent="." instance=ExtResource("2_od4ce")]
+position = Vector2(621, 396)
