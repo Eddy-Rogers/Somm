@@ -18,16 +18,21 @@ public partial class wine_shelf_manager : Node
 		_shelfslots = new Node2D[(_maxshelves * _maxslots)];
 		_occupied = new bool[_maxshelves * _maxslots];
 		
-		_pinot = GD.Load<PackedScene>("res://Assets/Nodes/pinot.tscn");
+		_pinot = GD.Load<PackedScene>("res://Assets/Nodes/wine_bottle.tscn");
 		
-		debug();
-		
+		//Debug();
 	}
 
 	public void debug()
 	{
 		for(int i = 0; i < _maxshelves * _maxslots; i++)
 			_StockWine();
+	}
+
+	public void _FreeSlot(int slot)
+	{
+		GD.Print($"Freeing Slot {slot}");
+		_occupied[slot] = false;
 	}
 
 	public bool _StockWine()
@@ -43,9 +48,9 @@ public partial class wine_shelf_manager : Node
 		
 		AddChild(scene);
 		
+		GD.Print($"Index: {openindex}");
 		scene.Position = new Vector2(calcx(openindex), calcy(openindex));
-		
-		GD.Print($"Adding wine to x: {calcx(openindex)}, y: {calcy(openindex)}");
+		scene.Call("set_wm_index", new Variant[] { openindex });
 		
 		// Add Wine Node to List
 		_shelfslots[openindex] = scene;

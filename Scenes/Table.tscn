@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7ijrdxcymxtg"]
+
+[ext_resource type="Script" path="res://Scripts/table.cs" id="1_3obr0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ue0cs"]
+height = 21.0744
+
+[node name="Table" type="Node2D" groups=["Droppable"]]
+script = ExtResource("1_3obr0")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Droppable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Droppable"]]
+z_index = 100
+position = Vector2(51, 44)
+scale = Vector2(4.92, 4.84)
+shape = SubResource("CapsuleShape2D_ue0cs")
+
+[node name="Control" type="Control" parent="Area2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Area2D/Control" groups=["Droppable"]]
+custom_minimum_size = Vector2(100, 100)
+offset_left = 2.0
+offset_top = -6.0
+offset_right = 102.0
+offset_bottom = 94.0
+mouse_filter = 2
+color = Color(0.517279, 0.332495, 0.203943, 1)
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

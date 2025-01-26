@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bd7da84k8j8ph"]
-
-[ext_resource type="Texture2D" uid="uid://cpfbt46hfm7an" path="res://Assets/Sprites/PNGs/pinot1.0.png" id="1_3y1ty"]
-
-[node name="Pinot1_0" type="Sprite2D"]
-scale = Vector2(0.95, 0.95)
-texture = ExtResource("1_3y1ty")

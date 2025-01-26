@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dk7mpyfo0350l"]
+
+[ext_resource type="Script" path="res://Scripts/wine_bottle.cs" id="1_516nw"]
+[ext_resource type="Texture2D" uid="uid://cpfbt46hfm7an" path="res://Assets/Sprites/PNGs/pinot1.0.png" id="1_s42ag"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_alt3v"]
+height = 218.0
+
+[node name="WineBottle" type="Node2D"]
+z_index = 100
+script = ExtResource("1_516nw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_s42ag")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -10)
+scale = Vector2(4.58962, 0.979818)
+shape = SubResource("CapsuleShape2D_alt3v")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2dlg6adjmwq1"]
+
+[ext_resource type="Script" path="res://Scripts/buy_button.cs" id="1_dk678"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qani0"]
+
+[node name="BuyButton" type="Node2D"]
+script = ExtResource("1_dk678")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(256, 64)
+scale = Vector2(25.5, 6.4)
+shape = SubResource("RectangleShape2D_qani0")
+
+[node name="Control" type="Control" parent="Area2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Area2D/Control"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 128.0
+mouse_filter = 2
+color = Color(0.682532, 0.292717, 0.45123, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Area2D/Control"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 128.0
+text = "Buy Pinot Noir"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

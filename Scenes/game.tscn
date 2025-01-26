@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy68xb6yuemc"]
+[gd_scene load_steps=5 format=3 uid="uid://cy68xb6yuemc"]
 
 [ext_resource type="PackedScene" uid="uid://i865t31whe0b" path="res://Scenes/wine_shelf.tscn" id="1_oa23w"]
 [ext_resource type="PackedScene" uid="uid://8is3wrnnh02v" path="res://Scenes/wine_browser.tscn" id="2_od4ce"]
+[ext_resource type="PackedScene" uid="uid://dxn21ssa01088" path="res://Scenes/restaurant.tscn" id="3_nslg3"]
+[ext_resource type="PackedScene" uid="uid://d2rrr56xrx8ia" path="res://Scenes/context_menu.tscn" id="4_nw0a2"]
 
 [node name="Game" type="Node2D"]
 
@@ -9,7 +11,13 @@
 zoom = Vector2(0.4, 0.4)
 
 [node name="WineShelf" parent="." instance=ExtResource("1_oa23w")]
-position = Vector2(276, -663)
+position = Vector2(220, -659)
 
-[node name="Node2D" parent="." instance=ExtResource("2_od4ce")]
-position = Vector2(621, 396)
+[node name="Restaurant" parent="." instance=ExtResource("3_nslg3")]
+position = Vector2(-1346, -788)
+
+[node name="Wine_Browser" parent="." instance=ExtResource("2_od4ce")]
+position = Vector2(745, 396)
+
+[node name="ContextMenu" parent="." instance=ExtResource("4_nw0a2")]
+position = Vector2(-1343, 3)
