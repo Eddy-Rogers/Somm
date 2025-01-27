@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo2dlyr3jbfrr"]
+
+[ext_resource type="Script" path="res://Scripts/overlay_manager.cs" id="1_1sxkm"]
+
+[node name="Overlay" type="Node2D"]
+visible = false
+script = ExtResource("1_1sxkm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1298.0
+offset_top = -789.0
+offset_right = -1258.0
+offset_bottom = -749.0
+metadata/_edit_use_anchors_ = true

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpfbt46hfm7an"
-path="res://.godot/imported/pinot1.0.png-0fec9611d94f3c9ac38d065316f3cf17.ctex"
+path="res://.godot/imported/PinotNoir.png-17d6a298134cd9b32b173dad19cd8959.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/PNGs/pinot1.0.png"
-dest_files=["res://.godot/imported/pinot1.0.png-0fec9611d94f3c9ac38d065316f3cf17.ctex"]
+source_file="res://Assets/Sprites/PNGs/Wine/PinotNoir.png"
+dest_files=["res://.godot/imported/PinotNoir.png-17d6a298134cd9b32b173dad19cd8959.ctex"]
 
 [params]
 

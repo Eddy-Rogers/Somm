@@ -3,8 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://c7ijrdxcymxtg" path="res://Scenes/Table.tscn" id="1_gdeyb"]
 [ext_resource type="Script" path="res://Scripts/restaurant_manager.cs" id="1_kq6pp"]
 
-[node name="Restaurant" type="Node2D"]
+[node name="Restaurant" type="Node2D" node_paths=PackedStringArray("SeatingTimer")]
 script = ExtResource("1_kq6pp")
+SeatingTimer = NodePath("SeatingTimer")
+NumberOfTables = 6
 
 [node name="Background" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1280, 764)
@@ -13,20 +15,26 @@ offset_bottom = 40.0
 mouse_filter = 2
 color = Color(0.633757, 0.633757, 0.633757, 1)
 
+[node name="Table1" parent="." instance=ExtResource("1_gdeyb")]
+position = Vector2(248, 200)
+
 [node name="Table2" parent="." instance=ExtResource("1_gdeyb")]
-position = Vector2(106, 76)
+position = Vector2(658, 200)
 
 [node name="Table3" parent="." instance=ExtResource("1_gdeyb")]
-position = Vector2(1091, 75)
+position = Vector2(1066, 200)
 
 [node name="Table4" parent="." instance=ExtResource("1_gdeyb")]
-position = Vector2(623, 585)
+position = Vector2(236, 550)
 
 [node name="Table5" parent="." instance=ExtResource("1_gdeyb")]
-position = Vector2(594, 78)
+position = Vector2(658, 550)
+scale = Vector2(0.9, 0.903961)
 
 [node name="Table6" parent="." instance=ExtResource("1_gdeyb")]
-position = Vector2(1100, 578)
+position = Vector2(1065, 550)
 
-[node name="Table" parent="." instance=ExtResource("1_gdeyb")]
-position = Vector2(142, 568)
+[node name="SeatingTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="SeatingTimer" to="." method="_on_seating_timer_timeout"]

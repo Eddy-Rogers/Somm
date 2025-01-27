@@ -1,20 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2dlg6adjmwq1"]
+[gd_scene load_steps=4 format=3 uid="uid://d2dlg6adjmwq1"]
 
 [ext_resource type="Script" path="res://Scripts/buy_button.cs" id="1_dk678"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qani0"]
+size = Vector2(19.7059, 19.6875)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7b7ig"]
+font_size = 32
 
 [node name="BuyButton" type="Node2D"]
+z_index = 10
+scale = Vector2(1, 1.48)
 script = ExtResource("1_dk678")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(256, 64)
+position = Vector2(258.75, 63)
 scale = Vector2(25.5, 6.4)
 shape = SubResource("RectangleShape2D_qani0")
 
-[node name="Control" type="Control" parent="Area2D"]
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -22,8 +28,7 @@ offset_bottom = 40.0
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="Area2D/Control"]
-custom_minimum_size = Vector2(512, 128)
+[node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 0
 offset_right = 512.0
 offset_bottom = 128.0
@@ -31,12 +36,15 @@ mouse_filter = 2
 color = Color(0.682532, 0.292717, 0.45123, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Area2D/Control"]
-custom_minimum_size = Vector2(512, 128)
-layout_mode = 0
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0168919
+anchor_bottom = -0.0168919
 offset_right = 512.0
 offset_bottom = 128.0
-text = "Buy Pinot Noir"
+text = "Buy"
+label_settings = SubResource("LabelSettings_7b7ig")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true

@@ -1,13 +1,62 @@
-[gd_scene load_steps=3 format=3 uid="uid://8is3wrnnh02v"]
+[gd_scene load_steps=4 format=3 uid="uid://8is3wrnnh02v"]
 
-[ext_resource type="Texture2D" uid="uid://b2mlge6i6f80v" path="res://Assets/Sprites/PNGs/WineBrowser1.0.png" id="1_5wqg4"]
+[ext_resource type="Texture2D" uid="uid://do8fwudo4iit2" path="res://Assets/Sprites/PNGs/WebLogo.png" id="2_ltbqm"]
 [ext_resource type="PackedScene" uid="uid://d2dlg6adjmwq1" path="res://Assets/Nodes/buy_button.tscn" id="2_ql6su"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p1mdw"]
+font_size = 128
+font_color = Color(0, 0, 0, 1)
 
 [node name="Wine_Browser" type="Node2D"]
 
-[node name="WineBrowser1_0" type="Sprite2D" parent="."]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("1_5wqg4")
-
 [node name="BuyButton" parent="." instance=ExtResource("2_ql6su")]
-position = Vector2(-397, -58)
+position = Vector2(94, 336)
+scale = Vector2(1.0233, 1.48)
+WineID = 1
+
+[node name="BuyButton2" parent="." instance=ExtResource("2_ql6su")]
+position = Vector2(725, 335)
+WineID = 2
+
+[node name="BuyButton3" parent="." instance=ExtResource("2_ql6su")]
+position = Vector2(101, 562)
+WineID = 3
+
+[node name="BuyButton4" parent="." instance=ExtResource("2_ql6su")]
+position = Vector2(728, 561)
+scale = Vector2(1, 1.47664)
+WineID = 4
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Background" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = -128.0
+offset_right = 1408.0
+offset_bottom = 784.0
+mouse_filter = 2
+
+[node name="StaticUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticUI"]
+position = Vector2(180, 139)
+texture = ExtResource("2_ltbqm")
+
+[node name="Label" type="Label" parent="StaticUI"]
+layout_mode = 0
+offset_left = 373.0
+offset_top = 70.0
+offset_right = 1232.0
+offset_bottom = 245.0
+text = "Wine Browser"
+label_settings = SubResource("LabelSettings_p1mdw")

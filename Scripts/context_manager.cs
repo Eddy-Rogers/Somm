@@ -1,6 +1,8 @@
 using Godot;
 using System;
 using System.IO;
+using System.Text.RegularExpressions;
+using FileAccess = Godot.FileAccess;
 
 public partial class context_manager : Node2D
 {
@@ -14,18 +16,24 @@ public partial class context_manager : Node2D
 	{
 	}
 
+	public void Clear()
+	{
+		GD.Print("Clearing");
+		GetNode<Label>("MealName").Text = "";
+		GetNode<Label>("MealDescription").Text = "";
+		GetNode<Label>("TableDescription").Text = "";
+	}
+
 	// Give me the name of the meal and I'll handle the rest
 	public void _UpdateContext(string meal_name, int occupants)
 	{
-		string[] meals = Directory.GetDirectories(ProjectSettings.GlobalizePath("res://Assets/Meals/"));
-		
-		GD.Print(ProjectSettings.GlobalizePath("res://Assets/Meals/") + meal_name + "/" + meal_name + ".txt");
-		
-		string description = File.ReadAllText( ProjectSettings.GlobalizePath("res://Assets/Meals/") + meal_name + "/" + meal_name + ".txt");
+		meal_name = Regex.Replace(meal_name, @"\s+", "_");
+		var file = FileAccess.Open("res://Assets/Meals/" + meal_name + "/" + meal_name + ".txt", FileAccess.ModeFlags.Read);
+		string desc = file.GetAsText();
 		
 		// Set Meal Name
 		GetNode<Label>("MealName").Text = "Meal: " + meal_name;
-		GetNode<Label>("MealDescription").Text = "Meal Description: " + description;
+		GetNode<Label>("MealDescription").Text = "Meal Description: " + desc;
 		GetNode<Label>("TableDescription").Text = "Number of Occupants: " + occupants.ToString();
 	}
 }

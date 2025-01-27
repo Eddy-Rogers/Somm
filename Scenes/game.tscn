@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy68xb6yuemc"]
+[gd_scene load_steps=7 format=3 uid="uid://cy68xb6yuemc"]
 
 [ext_resource type="PackedScene" uid="uid://i865t31whe0b" path="res://Scenes/wine_shelf.tscn" id="1_oa23w"]
 [ext_resource type="PackedScene" uid="uid://8is3wrnnh02v" path="res://Scenes/wine_browser.tscn" id="2_od4ce"]
 [ext_resource type="PackedScene" uid="uid://dxn21ssa01088" path="res://Scenes/restaurant.tscn" id="3_nslg3"]
 [ext_resource type="PackedScene" uid="uid://d2rrr56xrx8ia" path="res://Scenes/context_menu.tscn" id="4_nw0a2"]
+[ext_resource type="Script" path="res://Scripts/game_manager.cs" id="5_74a71"]
+[ext_resource type="LabelSettings" uid="uid://04g14qqyre7v" path="res://Assets/label_UI.tres" id="6_0w6rm"]
 
 [node name="Game" type="Node2D"]
 
@@ -11,13 +13,105 @@
 zoom = Vector2(0.4, 0.4)
 
 [node name="WineShelf" parent="." instance=ExtResource("1_oa23w")]
-position = Vector2(220, -659)
+position = Vector2(50, -592)
+scale = Vector2(1.168, 0.938)
 
 [node name="Restaurant" parent="." instance=ExtResource("3_nslg3")]
-position = Vector2(-1346, -788)
+position = Vector2(-1400, -714)
+scale = Vector2(1.00004, 0.92)
 
 [node name="Wine_Browser" parent="." instance=ExtResource("2_od4ce")]
-position = Vector2(745, 396)
+position = Vector2(8, -1)
 
 [node name="ContextMenu" parent="." instance=ExtResource("4_nw0a2")]
-position = Vector2(-1343, 3)
+position = Vector2(-1400, 0)
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("5_74a71")
+
+[node name="Money" type="Label" parent="GameManager"]
+z_index = 20
+offset_left = -1344.0
+offset_top = -810.0
+offset_right = -1088.0
+offset_bottom = -714.0
+text = "Money: $"
+label_settings = ExtResource("6_0w6rm")
+vertical_alignment = 1
+
+[node name="Satisfaction" type="Label" parent="GameManager"]
+z_index = 20
+offset_left = -1087.0
+offset_top = -809.0
+offset_right = -831.0
+offset_bottom = -713.0
+text = "Satisfaction:"
+label_settings = ExtResource("6_0w6rm")
+vertical_alignment = 1
+
+[node name="StaticUI" type="Node" parent="."]
+
+[node name="Control" type="Control" parent="StaticUI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="MiddleBorderHoriz" type="ColorRect" parent="StaticUI/Control"]
+layout_mode = 0
+offset_left = -1440.0
+offset_top = -9.0
+offset_right = 1440.0
+offset_bottom = 11.0
+color = Color(0, 0, 0, 1)
+
+[node name="MiddleBorder" type="ColorRect" parent="StaticUI/Control"]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -714.0
+offset_right = -100.0
+offset_bottom = 810.0
+color = Color(0, 0, 0, 1)
+
+[node name="BottomBorder2" type="ColorRect" parent="StaticUI/Control"]
+layout_mode = 0
+offset_left = -1440.0
+offset_top = -810.0
+offset_right = 1440.0
+offset_bottom = -714.0
+color = Color(0.924646, 0.913052, 0.87185, 1)
+
+[node name="BottomBorder" type="ColorRect" parent="StaticUI/Control"]
+layout_mode = 0
+offset_left = -1439.0
+offset_top = 770.0
+offset_right = 1441.0
+offset_bottom = 810.0
+color = Color(0, 0, 0, 1)
+
+[node name="RightBorder" type="ColorRect" parent="StaticUI/Control"]
+layout_mode = 0
+offset_left = 1400.0
+offset_top = -714.0
+offset_right = 1440.0
+offset_bottom = 810.0
+color = Color(0, 0, 0, 1)
+
+[node name="LeftBorder" type="ColorRect" parent="StaticUI/Control"]
+layout_mode = 0
+offset_left = -1440.0
+offset_top = -714.0
+offset_right = -1400.0
+offset_bottom = 810.0
+color = Color(0, 0, 0, 1)
+
+[node name="Background" type="ColorRect" parent="StaticUI/Control"]
+z_index = -25
+layout_mode = 0
+offset_left = -2943.0
+offset_top = -1243.0
+offset_right = 3057.0
+offset_bottom = 1757.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

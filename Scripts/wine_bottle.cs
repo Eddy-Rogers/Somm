@@ -16,6 +16,10 @@ public partial class wine_bottle : Node2D
 	public int _bottleID;
 
 	public int _wm_index;
+
+	private int _wine_id;
+
+	[Export] private Node2D _sprite;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -43,15 +47,16 @@ public partial class wine_bottle : Node2D
 			{
 				global_script._is_dragging = false;
 				global_script._current_drag_id = -1;
-				if (_is_inside_droppable)
+				if (_is_inside_droppable && (bool)droppable_node.GetParent().Call("IsOccupied"))
 				{
 					// Do some things
 					GetNode("/root/Game/WineShelf").Call("_FreeSlot", new Variant[] { _wm_index });
+					GetNode("/root/Game/GameManager").Call("add_money", new Variant[] { 30 });
+					droppable_node.GetParent().Call("ClearTable");
 					QueueFree();
 				}
 				else
 				{
-					
 					var tween = GetTree().CreateTween();
 					tween.TweenProperty(this, "global_position", initialPosition, 0.2).SetEase(Tween.EaseType.Out);
 				}
@@ -61,9 +66,10 @@ public partial class wine_bottle : Node2D
 
 	public void set_wm_index(int wm_index)
 	{
-		GD.Print("Received" + wm_index);
 		_wm_index = wm_index;
 	}
+	
+	public void set_wine_id(int WineID) => _wine_id = WineID;
 
 	public void _on_area_2d_mouse_entered()
 	{
@@ -72,14 +78,6 @@ public partial class wine_bottle : Node2D
 			Scale = new Vector2(1.1f, 1.1f);
 			_draggable = true;
 			global_script._current_drag_id = _bottleID;
-		}
-	}
-
-	public void _on_area_2d_input_event(Viewport viewport, InputEvent inputEvent)
-	{
-		if (inputEvent.IsActionPressed("ui_touch"))
-		{
-			
 		}
 	}
 	
@@ -97,6 +95,7 @@ public partial class wine_bottle : Node2D
 		if(other.IsInGroup("Droppable") && global_script._is_dragging)
 		{
 			_is_inside_droppable = true;
+			droppable_node = other;
 			other.GetParent().Call("grow");
 		}
 	}

@@ -1,6 +1,7 @@
 using System;
 using Godot;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 public partial class wine_shelf_manager : Node
 {
@@ -26,16 +27,15 @@ public partial class wine_shelf_manager : Node
 	public void debug()
 	{
 		for(int i = 0; i < _maxshelves * _maxslots; i++)
-			_StockWine();
+			_StockWine(1);
 	}
 
 	public void _FreeSlot(int slot)
 	{
-		GD.Print($"Freeing Slot {slot}");
 		_occupied[slot] = false;
 	}
 
-	public bool _StockWine()
+	public bool _StockWine(int WineID)
 	{
 		int openindex = _FindOpenShelf();
 		if (openindex == -1)
@@ -51,6 +51,14 @@ public partial class wine_shelf_manager : Node
 		GD.Print($"Index: {openindex}");
 		scene.Position = new Vector2(calcx(openindex), calcy(openindex));
 		scene.Call("set_wm_index", new Variant[] { openindex });
+		scene.Call("set_wine_id", WineID);
+
+		string WineType;
+		if (!global_script._wine_list.TryGetValue(WineID, out WineType))
+			throw new Exception("Wuh Oh, Wine ID not found");
+
+		scene.GetNode<Sprite2D>("Sprite2D").Texture =
+			GD.Load<Texture2D>("res://Assets/Sprites/PNGs/Wine/" + Regex.Replace(WineType, @"\s+", "") + ".png");
 		
 		// Add Wine Node to List
 		_shelfslots[openindex] = scene;
